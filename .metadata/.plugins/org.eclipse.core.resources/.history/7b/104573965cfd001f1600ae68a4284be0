@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest006.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e2d1f194b13cdb6274359fa8b3a1f8e"></script>
+<script type="text/javascript">
+	function initialize()
+	{
+		container = document.getElementById("map");
+		options =
+		{
+			center: new kakao.maps.LatLng(37.556529, 126.919510)
+			, level: 3
+				
+		}
+		
+		map = new kakao.maps.Map(container, options);
+	}
+
+	// 지도 정보 확인 버튼 클릭 시 호출되는 함수
+	function getInfo()
+	{
+		// 지도의 현재 중심 좌표 얻어오기
+		var center = map.getCenter();
+		
+		// 지도의 현재 레벨 얻어오기
+		var level = map.getLevel();
+		
+		// 지도의 현재 타입 얻어오기
+		var mapTypeId = map.getMapTypeId();
+		
+		// 지도의 현재 영역 얻어오기
+		var bounds = map.getBounds();
+		
+		// 내용 구성
+		var message = "지도 중심 좌표는 " + center + " 입니다.<br>";
+		message += "즉, 위도는 " + center.getLat() + " 이며, 경도는 " + center.getLng() + " 입니다.<br>";
+		// map.getCenter().getLat()
+		// map.getCenter().getLng()
+		
+		
+		// 결과 출력
+		var typeEl = document.getElementById("mapType");
+		typeEl.innerHTML = message;
+	}
+
+</script>
+
+
+</head>
+<body onload="initialize()">
+
+<!-- ○ 발급 받은 App Key -->
+<!-- 6e2d1f194b13cdb6274359fa8b3a1f8e --> 	
+
+<!-- ○ 지도의 중심 좌표 -->
+<!-- 37.556529, 126.919510 -->
+
+<!-- ○ 라인프렌즈 홍대 -->
+<!-- 37.555561, 126.921618 -->
+
+<!-- ○ 메가박스 홍대 -->
+<!-- 37.555952, 126.922018 -->
+
+<!-- ○ 탑텐 홍대점 -->
+<!-- 37.557913, 126.925766 -->
+
+<!-- ○ 국회의사당 -->
+<!-- 37.531932, 126.914144 -->
+
+
+<div>
+	<h1>Kakao Map 지도 정보 얻어내기</h1>
+	<hr>
+</div>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+<br>
+
+<p>
+	<button type="button" class="btn" onclick="getInfo()">지도 정보 확인</button>
+	<br><br>
+	
+	<span id="mapType"></span>
+
+</p>
+
+
+</body>
+</html>

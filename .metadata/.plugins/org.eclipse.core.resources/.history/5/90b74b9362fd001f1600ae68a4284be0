@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest008.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+
+<div>
+	<h1>Kakao Map 사용자 정의 컨트롤 구성</h1>
+	<hr>
+</div>
+
+<div class="mapWrap">
+	
+	<div id="map" style="width: 100%; height: 400px;"></div>
+
+</div>
+
+</body>
+</html>

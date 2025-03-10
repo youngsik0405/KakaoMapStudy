@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest006.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+<div>
+	<h1>Kakao Map 지도 정보 얻어내기</h1>
+	<hr>
+</div>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+<br>
+
+<p>
+	<button type="button" class="btn" onclick="getInfo()">지도 정보 확인</button>
+	<br><br>
+	
+	<span id="mapType"></span>
+
+</p>
+
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest004.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e2d1f194b13cdb6274359fa8b3a1f8e"></script>
+<script type="text/javascript">
+	
+	function initialize()
+	{
+		container = document.getElementById("map");
+		options = 
+		{	
+			center: new kakao.maps.LatLng(37.556529, 126.919510)
+			, level: 3
+		};
+		map = new kakao.maps.Map(container, options);
+	}
+	
+	// 중심좌표 이동 버튼 클릭 시 호출
+	function setCenter()
+	{
+		// 테스트
+		//alert("버튼 클릭 확인~!!!");
+		
+		// 중심을 이동할 위도 경도 위치 생성(라인프렌즈 홍대)
+		var moveLatLng = new kakao.maps.LatLng(37.555561, 126.921618);
+		
+		// 지도 중심 이동
+		map.setCenter(moveLatLng);
+		
+		//--==>>
+		/*
+		map.setCenter(new kakao.maps.LatLng(37.555561, 126.921618));
+		*/
+	}
+	
+	// 중심좌표 부드럽게 이동1 버튼 클릭 시 호출
+	function panTo1()
+	{
+		// 중심을 이동할 위도 경도 위치 생성(메가박스 홍대)
+		var moveLatLng = new kakao.maps.LatLng(37.555561, 126.921618);
+		
+		// 지도 중심을 부드럽게 이동
+		//-- 지도의 중심을 이동하는 과정에서 이동할 지점이 현재 지도에서 표현되는 범위 밖에 있다면
+		//	 즉, 이동 거리가 지도 화면보다 크다면 부드러운 효과 없이 이동하게 된다.
+		map.panTo(moveLatLng);
+	}
+	
+	// 중심좌표 부드럽게 이동2 버튼 클릭 시 호출
+	function panTo2()
+	{
+		var moveLatLng = new kakao.maps.LatLng(37.557913, 126.925766);
+		
+		map.panTo(moveLatLng);
+	}
+	
+	// 중심좌표 부드럽게 이동3 버튼 클릭 시 호출
+	function panTo3()
+	{
+		var moveLatLng = new kakao.maps.LatLng(37.531932, 126.914144);
+		
+		map.panTo(moveLatLng);
+	}
+
+
+</script>
+
+
+</head>
+<body onload="initialize()">
+
+<!-- ○ 발급 받은 App Key -->
+<!-- 6e2d1f194b13cdb6274359fa8b3a1f8e --> 	
+
+<!-- ○ 지도의 중심 좌표 -->
+<!-- 37.556529, 126.919510 -->
+
+
+<!-- ○ 라인프렌즈 홍대 -->
+<!-- 37.555561, 126.921618 -->
+
+<!-- ○ 메가박스 홍대 -->
+<!-- 37.555952, 126.922018 -->
+
+<!-- ○ 탑텐 홍대점 -->
+<!-- 37.557913, 126.925766 -->
+
+<!-- ○ 국회의사당 -->
+<!-- 37.531932, 126.914144 -->
+<div>
+	<h1>Kakao Map 중심 좌표 이동</h1>
+	<ul>
+		<li>지도 객체의 메소드를 통해 지도를 원하는 좌표로 이동시키는 것이 가능하다.</li>
+		<li>표시되고 있는 영역을 벗어나지 않는 거리에서는
+		애니메이션 효과처럼 지도를 부드럽게 이동시킬 수도 있다.</li>
+	</ul>
+	<hr>
+</div>
+
+
+<!-- 지도를 랜더링할 div 공간 확보(지정) -->
+<div id="map" style="width: 100%; height: 400px;"></div>
+
+<p>
+	<button type="button" class="btn" onclick="setCenter()">중심좌표 이동</button>
+	<button type="button" class="btn" onclick="panTo1()">중심좌표 부드럽게 이동1</button>
+	<button type="button" class="btn" onclick="panTo2()">중심좌표 부드럽게 이동2</button>
+	<button type="button" class="btn" onclick="panTo3()">중심좌표 부드럽게 이동3</button>
+</p>
+
+</body>
+</html>

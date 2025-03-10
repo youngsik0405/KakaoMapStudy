@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest007.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e2d1f194b13cdb6274359fa8b3a1f8e"></script>
+<script type="text/javascript">
+	function initialize()
+	{
+		container = document.getElementById("map");
+		options =
+		{
+			center: new kakao.maps.LatLng(37.556529, 126.919510);
+			, level: 3
+		}
+		
+		map = new kakao.maps.Map(container, options);
+		
+		// 지도 타입 컨트롤(지도 or 스카이뷰) 생성
+		mapTypeControl = new kakao.maps.mapTypeControl();
+		
+		// ※ 지도 타입에 대한 컨트롤을 생성만하면 되는것이 아니라
+		//	  생성된 해당 컨트롤을 추가해야 지도 위에 표시된다.
+		
+		// 지도 타입 컨트롤을 지도위에 추가
+		// 『kakao.maps.ControlPosition』 은 컨트롤이 표시될 위치를 정의하며,
+		// 『TOPRIGHT』는 오른쪽 위를 의미한다.
+		map.addControl(mapTypeControl, kakao.maps.ControlPosition.LEFT);
+		//  - 『TOP』  	  	 : 위 가운데를 의미한다. 아래로 쌓인다.
+		//	- 『TOPLEFT』 	 : 왼쪽 위를 의미한다. 오른쪽으로 쌓인다.
+		//	- 『TOPRIGHT』	 : 오른쪽 위를 의미한다. 왼쪽으로 쌓인다.
+		//	- 『LEFT』	  	 : 왼쪽 위를 의미한다. 아래로 쌓인다.
+		//					   (주의, 왼쪽 중앙을 의미하는 것이 아니다.)
+		//	- 『RIGHT』	  	 : 오른쪽 위를 의미한다. 아래로 쌓인다.
+		//					   (주의, 오른쪽 중앙을 의미하는 것이 아니다.)
+		//	- 『BOTTOMLEFT』 : 왼쪽 아래를 의미한다. 오른쪽으로 쌓인다.
+		//	- 『BOTTOM』     : 아래쪽 가운데를 의미한다. 위로 쌓인다.
+		//	- 『BOTTOMRIGHT』: 오른쪽 아래를 의미한다. 왼쪽으로 쌓인다.
+		
+		// 줌 컨트롤(확대 축소 제어 컨트롤) 생성
+		zoomControl = new kakao.maps.ZoomControl();
+		
+		// 줌 컨트롤을 지도 위에 추가
+		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+		
+	}
+	
+
+</script>
+
+
+
+</head>
+<body onload="initialize()">
+
+<!-- ○ 발급 받은 App Key -->
+<!-- 6e2d1f194b13cdb6274359fa8b3a1f8e --> 	
+
+<!-- ○ 지도의 중심 좌표 -->
+<!-- 37.556529, 126.919510 -->
+
+<!-- ○ 라인프렌즈 홍대 -->
+<!-- 37.555561, 126.921618 -->
+
+<!-- ○ 메가박스 홍대 -->
+<!-- 37.555952, 126.922018 -->
+
+<!-- ○ 탑텐 홍대점 -->
+<!-- 37.557913, 126.925766 -->
+
+<!-- ○ 국회의사당 -->
+<!-- 37.531932, 126.914144 -->
+
+<div>
+	<h1>Kakao Map 기본 컨트롤 구성</h1>
+	<hr>
+</div>
+
+<!-- 지도를 그릴 div -->
+<div id="map" style="width: 100%; height: 400px;"></div>
+
+</body>
+</html>
