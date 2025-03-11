@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest018.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3af3385ec0e17fc36675a7fccbb6a9a2"></script>
+<script type="text/javascript">
+
+	function initialize()
+	{
+		container = document.getElementById("map");
+		mapCenter = new kakao.maps.LatLng(37.556529, 126.919510);
+		options =
+		{
+			center: mapCenter
+			, level : 3
+		};
+		
+		// 맵 생성
+		map = new kakao.maps.Map(container, options);
+		
+		
+		// check~!!!
+		// 다중 마커를 등록할 속성 구성(개별 속성)
+		// → 배열 처리
+		positions = 
+		[
+			{
+				title: "스타벅스"
+				, latlng: new kakao.maps.LatLng(37.556861025043965, 126.9199821010452)
+			},
+			{
+				title: "소림커피"
+				, latlng: new kakao.maps.LatLng(37.55623672129038, 126.91944801898106)
+			},
+			{
+				title: "컴포즈커피"
+				, latlng: new kakao.maps.LatLng(37.55620825504394, 126.92065335784615)
+			},
+			{
+				title: "메가커피"
+				, latlng: new kakao.maps.LatLng(37.555949400717054, 126.92092525012661)
+			},
+			{
+				title: "맥심커피"
+				, latlng: new kakao.maps.LatLng(37.556488644020355, 126.91892714324435)
+			}
+		];
+	
+		
+	
+		// 다중 마커를 등록할 속성 구성(공통 속성)
+		imageSre = "images/markerGif03.gif";
+		imageSize = new kakao.maps.Size(24, 35);
+		
+		// check~!!
+		// 다중 마커 생성 → 반복문 구성
+		for (var i=0, i<positions.length; i++)	//-- 배열방의 갯수만큼...
+		{
+			// 마커 이미지 생성
+			var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+			
+			// 마커 생성
+			var marker = new kakao.maps.Marker(
+			{
+				map: map 								//-- 마커각 표시될 지도
+				, position: positions[i].latlng 		//-- 마커가 표시될 위치
+				, title: positions[i].title 			//-- 마커 타이틀
+				, image: markerImage 					//-- 마커 이미지
+			});
+			
+			// 마커가 지도에 표시될 수 있도록 설정
+			//marker.setMap(map);
+		}
+		
+	}
+</script>
+
+</head>
+<body onload="initialize()">
+
+<!-- ○ 발급 받은 App Key -->
+<!-- 3af3385ec0e17fc36675a7fccbb6a9a2 --> 	
+
+<!-- ○ 지도의 중심 좌표(풍성빌딩) -->
+<!-- 37.556529, 126.919510 -->
+
+<!-- ○ 스타벅스 -->
+<!-- 37.556861025043965, 126.9199821010452 -->
+
+<!-- ○ 소림커피 -->
+<!-- 37.55623672129038, 126.91944801898106 -->
+
+<!-- ○ 컴포즈커피 -->
+<!-- 37.55620825504394, 126.92065335784615 -->
+
+<!-- ○ 메가커피 -->
+<!-- 37.555949400717054, 126.92092525012661 -->
+
+<!-- ○ 맥심커피 -->
+<!-- 37.556488644020355, 126.91892714324435 -->
+
+<div>
+	<h1>Kakao Map 다중 마커 구성</h1>
+	<hr>
+</div>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+<br>
+
+</body>
+</html>

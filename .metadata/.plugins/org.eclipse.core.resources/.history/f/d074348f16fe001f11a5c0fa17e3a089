@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest012.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body onload="initialize()">
+
+<!-- ○ 발급 받은 App Key -->
+<!-- 3af3385ec0e17fc36675a7fccbb6a9a2 --> 	
+
+<!-- ○ 지도의 중심 좌표(풍성빌딩) -->
+<!-- 37.556529, 126.919510 -->
+<div>
+	<h1></h1>
+</div>
+
+
+
+</body>
+</html>

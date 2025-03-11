@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest017.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3af3385ec0e17fc36675a7fccbb6a9a2"></script>
+<script type="text/javascript">
+
+	function initialize()
+	{
+		container = document.getElementById("map");
+		mapCenter = new kakao.maps.LatLng(37.556529, 126.919510);
+		options =
+		{
+			center: mapCenter
+			, level : 3
+		};
+		
+		// 맵 생성
+		map = new kakao.maps.Map(container, options);
+		
+		
+		// 마커 옵션 구성 → 길 건너 스타벅스
+		markerCenter = new kakao.maps.LatLng(37.556870, 126.919994);
+		
+		// 마커 생성
+		marker = new kakao.maps.Marker(
+		{
+			position: markerCenter
+		});
+		
+		// 생성된 마커가 지도에 표시될 수 있도록 설정
+		marker.setMap(map);
+
+		// check~!!!
+		// 인포윈도우 옵션 구성
+		var iwContent = "<div style='padding:5px'>";
+		iwContent += "스타벅스 <br>";
+		iwContent += " <a href='http://map.kakao.com/link/map/";
+		iwContent += "스타벅스,37.556870, 126.919994' style='color:blue;' target='_blank'>지도보기</a>";
+		iwContent += " <a href='http://map.kakao.com/link/to/";
+		iwContent += "스타벅스,37.556870, 126.919994' style='color:blue;' target='_blank'>길찾기</a>";
+		iwContent += "</div>";
+		
+		
+		// check~!!!
+		// 인포윈도우 생성
+		infowindow = new kakao.maps.InfoWindow(
+		{
+			position: markerCenter
+			, content: iwContent
+		});
+		
+		// check~!!!
+		// 생성된 인포윈도우가 마커에 표시되도록 설정
+		infowindow.open(map, marker);
+		//-- open() 함수를 호출하는 과정에서
+		//   두 번째 파라미터(marker)를 설정하지 않을 경우
+		// 	 마커 없이 지도 위에 직접 표시
+	
+	}
+</script>
+
+</head>
+<body onload="initialize()">
+
+<!-- ○ 발급 받은 App Key -->
+<!-- 3af3385ec0e17fc36675a7fccbb6a9a2 --> 	
+
+<!-- ○ 지도의 중심 좌표(풍성빌딩) -->
+<!-- 37.556529, 126.919510 -->
+
+<!-- ○ 길건너 스타벅스 -->
+<!-- 37.556870, 126.919994 -->
+
+<!-- ○ 홍대입구역 2번출구 앞 스타벅스 -->
+<!-- 37.557159, 126.923603 -->
+
+
+<div>
+	<h1>Kakao Map 생성한 마커에 이벤트 등록</h1>
+	<hr>
+</div>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+<br>
+
+</body>
+</html>

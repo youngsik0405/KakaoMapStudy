@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest012.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3af3385ec0e17fc36675a7fccbb6a9a2"></script>
+<script type="text/javascript">
+
+	function initialize()
+	{
+		container = document.getElementById("map");
+		options =
+		{
+			center: new kakao.maps.LatLng(37.556529, 126.919510)
+			, level: 3
+		};
+		
+		map = new kakao.maps.Map(container, options);
+		
+		// check~!!!
+		// 지도 내부에 표시할 마커 구성(생성)
+		//marker = new kakao.maps.Marker({마커 구성 속성들});
+		marker = new kakao.maps.Marker(
+		{
+			// 지도 중심 좌표(37.556529, 126.919510)에
+			// 마커가 생성될 수 있도록 구성
+			// → 『position』
+			//position: new kakao.maps.LatLng(37.556529, 126.919510)
+			position: map.getCenter()
+		});
+		 
+		// 지도에 마커 표시를 포함 → 마커의 입장에서 지도를 지정
+		marker.setMap(map);
+		
+	}
+	
+	function clickAction()
+	{
+		kakao.maps.event.addListener(map, "click", function(mouseEvent)
+		{
+			
+		});
+	}
+
+</script>
+
+
+
+</head>
+<body onload="initialize()">
+
+<!-- ○ 발급 받은 App Key -->
+<!-- 3af3385ec0e17fc36675a7fccbb6a9a2 --> 	
+
+<!-- ○ 지도의 중심 좌표(풍성빌딩) -->
+<!-- 37.556529, 126.919510 -->
+
+<div>
+	<h1>Kakao Map 마우스 클릭 이벤트 등록</h1>
+	<hr>
+</div>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+<br>
+
+
+<p>
+	지도 클릭으로 좌표 확인 및 해당 지점 마커 표시
+</p>
+<div id="result"></div>
+
+
+
+</body>
+</html>

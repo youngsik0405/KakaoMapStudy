@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3af3385ec0e17fc36675a7fccbb6a9a2"></script>
+<script type="text/javascript">
+
+	function initialize()
+	{
+		container = document.getElementById("map");
+		options = 
+		{
+			center: new kakao.maps.LatLng(37.556529, 126.919510)
+			, level: 3
+			, draggable: false
+			//-- 지도 생성 시 지도 이동 막으려면 + (확대/축소)
+			//	 → 『draggable: false』 옵션을 추가한다.
+		};
+		
+		map = new kakao.maps.Map(container, options);
+	}
+	
+	// 버튼 클릭에 따라 지도 이동 기능을 막거나 풀고자 하는 경우
+	// 『map.setDraggable()』 함수를 사용한다.
+	function setDraggable(dragable)
+	{
+		// 확인
+		//alert(dragable);
+		//--==>> false / true
+		
+		
+		// 마우스 드래그로 지도 이동 가능여부 설정
+		map.setDraggable(dragable);
+		
+		
+	}
+
+</script>
+
+
+
+
+
+</head>
+<body onload="initialize()">
+
+<!-- ○ 발급 받은 App Key -->
+<!-- 3af3385ec0e17fc36675a7fccbb6a9a2 --> 	
+
+<!-- ○ 지도의 중심 좌표(풍성빌딩) -->
+<!-- 37.556529, 126.919510 -->
+
+<!-- ○ 라인프렌즈 홍대 -->
+<!-- 37.555561, 126.921618 -->
+
+<!-- ○ 메가박스 홍대 -->
+<!-- 37.555952, 126.922018 -->
+
+<!-- ○ 탑텐 홍대점 -->
+<!-- 37.557913, 126.925766 -->
+
+<!-- ○ 국회의사당 -->
+<!-- 37.531932, 126.914144 -->
+
+
+<div>
+	<h1>Kakao Map 드래그 제한 / 허용</h1>
+</div>
+
+<!-- 지도를 그려낼 div 공간 확보 -->
+<div id="map" style="width: 100%; height: 400px;"></div>
+
+<div>
+	<p>
+		<button type="button" class="btn" onclick="setDraggable(false)">드래그 제한(불가)</button>
+		<button type="button" class="btn" onclick="setDraggable(true)">드래그 허용(가능)</button>
+	</p>
+</div>
+
+</body>
+</html>

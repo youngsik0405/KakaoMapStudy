@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MapTest011.html</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3af3385ec0e17fc36675a7fccbb6a9a2"></script>
+
+<script type="text/javascript">
+	
+	function initialize()
+	{
+		container = document.getElementById("map");
+		options =
+		{
+			center: new kakao.maps.LatLng(37.556529, 126.919510)
+			, level: 3
+		};
+		
+		map = new kakao.maps.Map(container, options);
+		
+		// check~!!!
+		clickAction();
+	}
+
+	// check~!!!
+	// 지도 영역이 클릭되었을 때 호출(Ⅹ) → 문서가 로딩 되었을 때 호출
+	function clickAction()
+	{
+		//kakao.maps.event.addListener(지도대상, 이벤트, 기능);
+		//kakao.maps.event.addListener(map, "click", function(){});
+		kakao.maps.event.addListener(map, "click", function(mouseEvent)
+		{
+			// 확인
+			//alert("확인~!!!");
+			
+			// 클릭한(마우스 이벤트가 발생한) 지점의
+			// 위도, 경도에 대한 정보 가져오기
+			var latLng = mouseEvent.latLng;
+			
+			// 확인
+			//alert(latLng);
+			
+			// 클릭한 지점의 위도는 37.55660806879089 이고,
+			// 경도는 126.91898926015722 입니다.
+			// → #result
+			
+			var message = "";
+			
+			document.getElementById("result").HTML = "dsa";
+			
+		});
+	}
+	
+</script>
+
+
+</head>
+<body onload="initialize()">
+
+<!-- ○ 발급 받은 App Key -->
+<!-- 3af3385ec0e17fc36675a7fccbb6a9a2 --> 	
+
+<!-- ○ 지도의 중심 좌표(풍성빌딩) -->
+<!-- 37.556529, 126.919510 -->
+
+<div>
+	<h1>Kakao Map 마우스 클릭 이벤트 등록</h1>
+	<hr>
+</div>
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+<br>
+
+
+<p>
+	지도 클릭으로 좌표 확인
+</p>
+<div id="result"></div>
+
+</body>
+</html>
